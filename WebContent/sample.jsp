@@ -9,15 +9,16 @@
 <body>
 	<form action="LoginServlet">
 
-			Please enter your username 		
-			<input type="text" id="un" name="un"/><br>		
+			<label>USERNAME</label> 		
+			<input type="text" id="un" name="un"/><br><br>		
 		
-			Please enter your password
+			<label>PASSWORD</label>
 			<input type="text" id="pw" name="pw"/>
 			
 			<input type="submit" id="submit" value="submit">			
 		
 	</form>
+	<br>
 	<a id="fp" href="forgotPassword.jsp">Forgot Password?</a>
 	<!-- a id="fp1" href="forgotPassword.jsp">Forgot Password?????????????????????</a>
 	<a id="fp2" href="forgotPassword.jsp">Updates?????????????????????</a><br>
