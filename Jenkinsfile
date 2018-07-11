@@ -44,7 +44,9 @@ pipeline {
     throw e
 	}
 	
-	def notifyStarted() {
+	
+}
+def notifyStarted() {
 		echo 'NOTIFICATION - BUILD STARTED'
 		// send to email
 		//emailext (
@@ -76,4 +78,3 @@ pipeline {
 		//recipientProviders: [[$class: 'DevelopersRecipientProvider']]
 		//)
 	}
-}
