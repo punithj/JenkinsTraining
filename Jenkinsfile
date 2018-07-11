@@ -9,7 +9,7 @@ pipeline {
 	
 		stage("build"){
 			steps {
-				notifyStarted()
+				
 				withMaven(jdk: 'java1.8.0_151', maven: 'maven') {
 					powershell 'mvn clean compile'
 				}
@@ -34,7 +34,7 @@ pipeline {
 				withMaven(jdk: 'java1.8.0_151', maven: 'maven') {
 					powershell 'mvn tomcat7:undeploy tomcat7:deploy'
 				}
-				notifySuccessful()
+				
 			}
 		}
 	}
