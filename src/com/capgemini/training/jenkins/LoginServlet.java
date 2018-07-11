@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try
 		{	    
@@ -42,7 +42,8 @@ public class LoginServlet extends HttpServlet {
 			        
 		          HttpSession session = request.getSession(true);	    
 		          session.setAttribute("currentSessionUser",user); 
-		          response.sendRedirect("userLogged.jsp"); //logged-in page      		
+		          response.sendRedirect("userLogged.jsp"); //logged-in page
+		          System.out.println(response.getWriter().toString());
 		     }
 			        
 		     else 
@@ -59,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
