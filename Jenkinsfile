@@ -2,9 +2,9 @@ pipeline {
 	agent {
 		label 'DIN30000728'
 	}
-	
-	stages {
 	try{
+	stages {
+	
 	
 	
 		stage("build"){
