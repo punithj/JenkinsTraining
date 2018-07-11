@@ -45,7 +45,7 @@ pipeline {
         }
         
         failure {
-          echo "Only when we fail running the first stage."
+          echo "PIPELINE - FAILURE"
         }
       }
 	
