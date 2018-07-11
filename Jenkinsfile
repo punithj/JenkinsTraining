@@ -2,7 +2,7 @@ pipeline {
 	agent {
 		label 'DIN30000728'
 	}
-	try{
+	
 	stages {
 	
 	
@@ -38,16 +38,21 @@ pipeline {
 			}
 		}
 	}
-	}catch (e) {
-    currentBuild.result = "FAILED"
-    notifyFailed()
-    throw e
-	}
+	
+	post {
+        success {
+          echo "PIPELINE - SUCCESS"
+        }
+        
+        failure {
+          echo "Only when we fail running the first stage."
+        }
+      }
 	
 	
 }
-def notifyStarted() {
-		echo 'NOTIFICATION - BUILD STARTED'
+//def notifyStarted() {
+		//echo 'NOTIFICATION - BUILD STARTED'
 		// send to email
 		//emailext (
 		//subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
@@ -55,20 +60,20 @@ def notifyStarted() {
         //<p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
 		//recipientProviders: [[$class: 'DevelopersRecipientProvider']]
 		//)
-	}
+	//}
 	
-	def notifySuccessful() {
+	//def notifySuccessful() {
   
-		echo 'NOTIFICATION - BUILD SUCCESSFUL'
+		//echo 'NOTIFICATION - BUILD SUCCESSFUL'
 		//emailext (
 		//subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
 		//body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
         //<p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
 		//recipientProviders: [[$class: 'DevelopersRecipientProvider']]
 		//)
-	}
+	//}
 	
-	def notifyFailed() {
+	//def notifyFailed() {
   
 		echo 'NOTIFICATION - BUILD FAILED'
 		//emailext (
@@ -77,4 +82,4 @@ def notifyStarted() {
         //<p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
 		//recipientProviders: [[$class: 'DevelopersRecipientProvider']]
 		//)
-	}
+	//}
